@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  shopzy-order-db:
+    image: postgres
+    container_name: shopzy-order-db
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypass
+      POSTGRES_DB: order_db
+    ports:
+      - "5441:5432"
+    volumes:
+      - /Users/shohamkar/Personal/Shopzy/volumes/order-volume:/var/lib/postgresql/data
+
+  shopzy-product-db:
+    image: postgres
+    container_name: shopzy-product-db
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypass
+      POSTGRES_DB: product_db
+    ports:
+      - "5442:5432"
+    volumes:
+      - /Users/shohamkar/Personal/Shopzy/volumes/product-volume:/var/lib/postgresql/data
+
+  shopzy-user-db:
+    image: postgres
+    container_name: shopzy-user-db
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypass
+      POSTGRES_DB: user_db
+    ports:
+      - "5443:5432"
+    volumes:
+      - /Users/shohamkar/Personal/Shopzy/volumes/user-volume:/var/lib/postgresql/data

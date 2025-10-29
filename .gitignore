@@ -1,0 +1,30 @@
+# Ignore compiled output files
+*.o
+*.class
+*.pyc
+*.swp
+
+# Ignore build artifacts
+/build/
+/dist/
+/target/
+
+# Ignore temporary files
+*~
+*.tmp
+.DS_Store # macOS specific
+Thumbs.db # Windows specific
+
+# Ignore logs
+*.log
+
+# Ignore IDE-specific files and folders
+.idea/ # IntelliJ IDEA
+.vscode/ # VS Code
+*.iml # IntelliJ IDEA module file
+
+# Ignore sensitive information (e.g., environment variables)
+.env
+
+
+/volumes/

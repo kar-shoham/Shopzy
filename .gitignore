@@ -24,7 +24,6 @@ Thumbs.db # Windows specific
 *.iml # IntelliJ IDEA module file
 
 # Ignore sensitive information (e.g., environment variables)
-.env
-
+/local.env
 
 /volumes/

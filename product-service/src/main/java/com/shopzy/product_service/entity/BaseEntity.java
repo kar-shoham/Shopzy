@@ -28,10 +28,10 @@ public abstract class BaseEntity
     private Long id;
 
     @Column(nullable = false, updatable = false)
-    private Long createdBy;
+    private Long createdBy = 1L;
 
     @Column(nullable = false)
-    private Long modifiedBy;
+    private Long modifiedBy = 1L;
 
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdOn;

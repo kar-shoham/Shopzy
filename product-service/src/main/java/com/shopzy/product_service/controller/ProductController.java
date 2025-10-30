@@ -55,7 +55,7 @@ public class ProductController
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<ProductDTO> create(
+    public ResponseEntity<ProductDTO> update(
             @RequestBody @NonNull ProductDTO request,
             @PathVariable Long id
     )

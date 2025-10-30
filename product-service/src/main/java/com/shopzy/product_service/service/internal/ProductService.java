@@ -12,7 +12,9 @@ public interface ProductService
 
     Product getProductByCode(String code);
 
-    Product addOrUpdate(Product product);
+    Product create(Product product);
+
+    Product update(Product product);
 
     boolean deleteProduct(Long id);
 }

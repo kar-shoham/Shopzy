@@ -4,6 +4,7 @@ import com.shopzy.product_service.dto.ProductDTO;
 import com.shopzy.product_service.entity.Product;
 import com.shopzy.product_service.repository.ProductRepository;
 import com.shopzy.product_service.service.internal.ProductService;
+import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -43,24 +44,19 @@ public class ProductServiceImpl
     }
 
     @Override
-    public Product addOrUpdate(Product product)
+    public Product create(Product product)
     {
         Product dbProduct = findDBProduct(product);
-        if(Objects.isNull(dbProduct)) {
-            return create(product);
+        if (Objects.nonNull(dbProduct)) {
+            throw new EntityExistsException("Product already exists");
         }
-        else {
-            return update(product, dbProduct);
-        }
-    }
-
-    private Product create(Product product)
-    {
         return productRepository.save(product);
     }
 
-    private Product update(Product product, Product dbProduct)
+    @Override
+    public Product update(Product product)
     {
+        Product dbProduct = findDBProduct(product);
         modelMapper.map(product, dbProduct);
         return productRepository.save(dbProduct);
     }

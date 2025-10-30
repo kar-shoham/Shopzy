@@ -16,6 +16,7 @@ public class Config
         ModelMapper mapper = new ModelMapper();
         TypeMap<Product, Product> productProductTypeMap = mapper.createTypeMap(Product.class, Product.class);
         productProductTypeMap.setPropertyCondition(Conditions.isNotNull());
+        productProductTypeMap.addMappings(m -> m.skip(Product::setReviews));
         return mapper;
     }
 }

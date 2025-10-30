@@ -50,7 +50,7 @@ public class ProductController
             @RequestBody @NonNull ProductDTO request
     )
     {
-        Product product = productService.addOrUpdate(productConverter.toEntity(request));
+        Product product = productService.create(productConverter.toEntity(request));
         return ResponseEntity.ok(productConverter.toDto(product));
     }
 
@@ -61,7 +61,7 @@ public class ProductController
     )
     {
         request.setId(id); // im case already not done
-        Product product = productService.addOrUpdate(productConverter.toEntity(request));
+        Product product = productService.update(productConverter.toEntity(request));
         return ResponseEntity.ok(productConverter.toDto(product));
     }
 

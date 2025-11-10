@@ -1,8 +1,7 @@
-package com.shopzy.user_service.utils;
+package com.shopzy.product_service.utils;
 
+import com.shopzy.product_service.enums.UserType;
 import com.shopzy.user_service.dto.JwtResponse;
-import com.shopzy.user_service.entity.ShopzyUser;
-import com.shopzy.user_service.enums.UserType;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
@@ -25,15 +24,6 @@ public class JwtUtils
     public void init()
     {
         this.key = Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
-    }
-
-    public String generateJwt(ShopzyUser user)
-    {
-        return Jwts.builder()
-                .subject(user.getId().toString())
-                .claim("role", user.getUserType().toString())
-                .signWith(key)
-                .compact();
     }
 
     public JwtResponse validateJwt(String jwt)

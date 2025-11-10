@@ -44,6 +44,10 @@ public abstract class BaseEntity
     {
         this.createdOn = LocalDateTime.now();
         this.modifiedOn = LocalDateTime.now();
+
+        // todo: fix this!
+        this.createdBy = 1L;
+        this.modifiedBy = 1L;
     }
 
     @PreUpdate
